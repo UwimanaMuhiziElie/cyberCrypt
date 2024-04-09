@@ -13,7 +13,7 @@ It is a command‑line cybersecurity tool designed for ethical hackers and penet
 3. Install CyberCrypt: `python setup.py install`
 
 ## Usage
-- For usage instructions, run `main.py --help`
+- For usage instructions, run `python main.py --help`
 
 ## Examples
 - **Encrypt data using base64**: 
