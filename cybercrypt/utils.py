@@ -1,10 +1,11 @@
-import os
-import getpass
 from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives.keywrap import aes_key_wrap, aes_key_unwrap
+from cryptography.hazmat.backends import default_backend
+import os
+import getpass
 
 def secure_store_key(key, filename, passphrase=None):
     if passphrase:
@@ -60,3 +61,16 @@ def aes_decrypt(encrypted_data, key):
     decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
     return decrypted_data
 
+def wrap_key(key_to_wrap, wrapping_key):
+    """
+    Wrap a symmetric key using AES key wrap.
+    """
+    wrapped_key = aes_key_wrap(wrapping_key, key_to_wrap)
+    return wrapped_key
+
+def unwrap_key(wrapped_key, unwrapping_key):
+    """
+    Unwrap a symmetric key using AES key unwrap.
+    """
+    unwrapped_key = aes_key_unwrap(unwrapping_key, wrapped_key)
+    return unwrapped_key
