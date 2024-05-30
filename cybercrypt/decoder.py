@@ -1,16 +1,4 @@
-# import base64
-# import urllib.parse
-# import html
 
-# DECODERS = {
-#     "base64": base64.b64decode,
-#     "hex": bytes.fromhex,
-#     "url": lambda data: urllib.parse.unquote(data),
-#     "html": html.unescape
-# }
-
-# def decode(data, decoding_type):
-#     return DECODERS[decoding_type](data)
 
 import base64
 import urllib.parse
