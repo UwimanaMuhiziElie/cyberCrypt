@@ -65,7 +65,7 @@ def rsa_decrypt(encrypted_data, private_key_pem, passphrase=None, padding_scheme
     Decrypt data using the RSA private key and specified padding scheme.
     """
     if isinstance(passphrase, str):
-        passphrase = passphrase.encode()  # Ensure the passphrase is bytes-like
+        passphrase = passphrase.encode() 
 
     private_key = serialization.load_pem_private_key(private_key_pem, password=passphrase, backend=default_backend())
 
