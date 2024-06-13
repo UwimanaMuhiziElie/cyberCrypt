@@ -1,4 +1,5 @@
 # CyberCrypt
+
 ![Build Status](https://github.com/UwimanaMuhiziElie/cybercrypt/actions/workflows/main.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/UwimanaMuhiziElie/cybercrypt/badge.svg?branch=main)](https://coveralls.io/github/UwimanaMuhiziElie/cybercrypt?branch=main)
 [![codecov](https://codecov.io/gh/UwimanaMuhiziElie/cybercrypt/branch/main/graph/badge.svg)](https://codecov.io/gh/UwimanaMuhiziElie/cybercrypt)
