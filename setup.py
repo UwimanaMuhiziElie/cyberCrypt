@@ -9,7 +9,6 @@ setup(
             'cyberCrypt=cybercrypt:main',
             'cyberCrypt-windows=cybercrypt:main',  # For Windows
             'cyberCrypt-linux=cybercrypt:main',    # For Linux
-            'cyberCrypt-macos=cybercrypt:main',    # For macOS
         ],
     },
     install_requires=[
@@ -36,5 +35,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
