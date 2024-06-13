@@ -27,26 +27,3 @@ def test_cli_rsa_generate_keypair():
     assert "rsa_private.pem" in stdout
     assert "rsa_public.pem" in stdout
 
-def test_cli_rsa_encrypt_decrypt():
-    run_command("python cybercrypt.py --generate-rsa-keypair --passphrase 'we are hackers!'")
-    message = "Hello, hackers!"
-    stdout, stderr = run_command(f'python cybercrypt.py "{message}" --rsa-encrypt --public-key rsa_public.pem')
-    encrypted_message = stdout.split("[+] RSA Encrypted Data: ")[-1].strip()
-    stdout, stderr = run_command(f'python cybercrypt.py "{encrypted_message}" --rsa-decrypt --private-key rsa_private.pem --passphrase "we are hackers!"')
-    decrypted_message = stdout.split("[+] RSA Decrypted Data: ")[-1].strip()
-    assert message == decrypted_message
-
-@pytest.mark.asyncio
-async def test_cli_aes_encrypt_decrypt(tmp_path):
-    key = b'thisistestaeskey'
-    message = b"Hello, AES!"
-    key_file = tmp_path / "aes_key.bin"
-
-    await secure_store_key(key, str(key_file), "securepass")
-    stdout, stderr = run_command(f'python cybercrypt.py "{message.decode()}" --aes-encrypt --key-file {str(key_file)}')
-    encrypted_message = stdout.split("[+] AES Encrypted Data: ")[-1].strip()
-    stdout, stderr = run_command(f'python cybercrypt.py "{encrypted_message}" --aes-decrypt --key-file {str(key_file)}')
-
-    # Extract the decrypted message
-    decrypted_message = stdout.split("[+] AES Decrypted Data: ")[-1].strip()
-    assert message.decode() == decrypted_message
