@@ -23,6 +23,7 @@ setup(
         'dev': [
             'pytest',
             'pytest-asyncio',
+            'codecov',
         ],
     },
     author='El13',

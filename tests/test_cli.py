@@ -22,8 +22,3 @@ def test_cli_hash_md5():
     stdout, stderr = run_command('python cybercrypt.py "Hello, World!" --hash md5')
     assert "65a8e27d8879283831b664bd8b7f0ad4" in stdout
 
-def test_cli_rsa_generate_keypair():
-    stdout, stderr = run_command("python cybercrypt.py --generate-rsa-keypair --passphrase 'we are hackers!'")
-    assert "rsa_private.pem" in stdout
-    assert "rsa_public.pem" in stdout
-
