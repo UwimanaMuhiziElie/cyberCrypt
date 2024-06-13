@@ -6,8 +6,10 @@ from cryptography.hazmat.primitives.keywrap import aes_key_wrap, aes_key_unwrap
 from cryptography.hazmat.backends import default_backend
 import os
 import getpass
+import asyncio
+import aiofiles
 
-def secure_store_key(key, filename, passphrase=None):
+async def secure_store_key(key, filename, passphrase=None):
     if passphrase:
         salt = os.urandom(16)
         kdf = PBKDF2HMAC(
@@ -17,15 +19,20 @@ def secure_store_key(key, filename, passphrase=None):
             iterations=100000,
             backend=default_backend()
         )
-        key = kdf.derive(passphrase.encode())
-    with open(filename, 'wb') as file:
-        file.write(key)
+        derived_key = kdf.derive(passphrase.encode())
+        key = aes_key_wrap(derived_key, key)
+        async with aiofiles.open(filename, 'wb') as file:
+            await file.write(salt + key)
+    else:
+        async with aiofiles.open(filename, 'wb') as file:
+            await file.write(key)
 
-def secure_load_key(filename, passphrase=None):
-    with open(filename, 'rb') as file:
-        key = file.read()
+async def secure_load_key(filename, passphrase=None):
+    async with aiofiles.open(filename, 'rb') as file:
+        key = await file.read()
     if passphrase:
         salt = key[:16]
+        wrapped_key = key[16:]
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
@@ -33,7 +40,8 @@ def secure_load_key(filename, passphrase=None):
             iterations=100000,
             backend=default_backend()
         )
-        key = kdf.derive(passphrase.encode())
+        derived_key = kdf.derive(passphrase.encode())
+        key = aes_key_unwrap(derived_key, wrapped_key)
     return key
 
 def get_passphrase(prompt='Enter passphrase: '):
@@ -74,3 +82,4 @@ def unwrap_key(wrapped_key, unwrapping_key):
     """
     unwrapped_key = aes_key_unwrap(unwrapping_key, wrapped_key)
     return unwrapped_key
+

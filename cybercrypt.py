@@ -1,12 +1,14 @@
 import argparse
 import pyfiglet
 from colorama import Fore, init
-from cybercrypt.input_validator import determine_input_type, validate_input
-from cybercrypt.encoder import encode
-from cybercrypt.decoder import decode
-from cybercrypt.hasher import hash_data
-from cybercrypt.rsa_crypto import generate_rsa_keypair, rsa_encrypt, rsa_decrypt
-from cybercrypt.utils import aes_encrypt, aes_decrypt, wrap_key, unwrap_key
+import asyncio
+from core.input_validator import determine_input_type, validate_input
+from core.encoder import encode
+from core.decoder import decode
+from core.hasher import hash_data, hash_data_concurrently
+from core.rsa_crypto import generate_rsa_keypair, rsa_encrypt, rsa_decrypt
+from core.utils import aes_encrypt, aes_decrypt, wrap_key, unwrap_key, secure_store_key, secure_load_key
+from core.unhasher import unhash_data
 
 init(autoreset=True)
 
@@ -14,18 +16,18 @@ def print_banner():
     banner_text = "cyberCrypt__"
     font_style = "slant"
     banner = pyfiglet.figlet_format(banner_text, font=font_style)
-    print(Fore.YELLOW + banner)
-    print(f"{Fore.YELLOW}***************************************************************")
+    print(Fore.GREEN + banner)
+    print(f"{Fore.GREEN}***************************************************************")
     print()
 
 def print_author_info():
-    author_info = 'Author: El1E-l33t | Contact: muhizielie01@gmail.com | Description: Red Teamer, Penetration tester, and bug bounty hunter with a passion for security research.'
+    author_info = 'Author: El13 | ping me at: www.linkedin.com/in/elie-uwimana'
     print(Fore.GREEN + author_info)
     print()
 
 VERSION = "1.0.0"
 
-def main():
+async def main():
     print_banner()
     print_author_info()                          
 
@@ -33,10 +35,12 @@ def main():
                                      epilog="For more information, visit https://github.com/uwimanaMuhiziElie/cyberCrypt")
     parser.add_argument("--generate-rsa-keypair", action="store_true", help="Generate RSA key pair (public and private key)")
     parser.add_argument("--key-size", type=int, choices=[2048, 3072, 4096], default=2048, help="Specify RSA key size (default: 2048)")
+    parser.add_argument("--passphrase", help="Passphrase for RSA key pair encryption")
     parser.add_argument("data", nargs='?', help="Input data to process")
     parser.add_argument("-enc", "--encode", choices=['base64', 'hex', 'url', 'html'], help="Encode the input data using specified algorithm (default: base64)")
     parser.add_argument("-dec", "--decode", choices=['base64', 'hex', 'url', 'html'], help="Decode the input data using specified algorithm (default: base64)")
     parser.add_argument("-hash", "--hash", choices=['md5', 'sha1', 'sha256', 'sha512', 'sha3_256', 'bcrypt'], help="Hash the input data using specified algorithm (default: sha256)")
+    parser.add_argument("--concurrent-hash", action="store_true", help="Enable concurrent hashing")
     parser.add_argument("-w", "--wordlist", help="Path to a wordlist for unhashing")
     parser.add_argument("--rsa-encrypt", action="store_true", help="Encrypt data using RSA (requires --public-key)")
     parser.add_argument("--rsa-decrypt", action="store_true", help="Decrypt data using RSA (requires --private-key)")
@@ -53,7 +57,7 @@ def main():
     args = parser.parse_args()
 
     if args.generate_rsa_keypair:
-        generate_rsa_keypair(key_size=args.key_size)
+        generate_rsa_keypair(key_size=args.key_size, passphrase=args.passphrase)
         return
 
     if not args.data and not (args.wrap_key or args.unwrap_key):
@@ -74,8 +78,15 @@ def main():
                 print(f"{Fore.YELLOW}[+] {args.decode} decoding: {decoded_data}")
 
             if args.hash:
-                hashed_data = hash_data(args.data, args.hash)
+                if args.concurrent_hash:
+                    hashed_data = hash_data_concurrently([args.data], args.hash)[0]
+                else:
+                    hashed_data = hash_data(args.data, args.hash)
                 print(f"{Fore.YELLOW}[+] {args.hash} algorithm string: {hashed_data}")
+
+            if args.wordlist:
+                original_data = await unhash_data(args.data, args.hash, args.wordlist)
+                print(f"{Fore.YELLOW}[+] {args.hash} unhash: {original_data}")
 
             if args.rsa_encrypt:
                 if not args.public_key:
@@ -90,7 +101,8 @@ def main():
                     raise ValueError("{Fore.YELLOW}[!] Please provide a private key for RSA decryption.")
                 with open(args.private_key, 'rb') as key_file:
                     private_key_pem = key_file.read()
-                decrypted_data = rsa_decrypt(bytes.fromhex(args.data), private_key_pem, passphrase=None, padding_scheme=args.padding)
+                passphrase = args.passphrase.encode() if args.passphrase else None
+                decrypted_data = rsa_decrypt(bytes.fromhex(args.data), private_key_pem, passphrase=passphrase, padding_scheme=args.padding)
                 print(f"{Fore.YELLOW}[+] RSA Decrypted Data: {decrypted_data}")
 
         except ValueError as e:
@@ -115,8 +127,4 @@ def main():
         print(f"{Fore.YELLOW}[+] Unwrapped Key: {unwrapped_key.hex()}")
 
 if __name__ == "__main__":
-    main()
-
-# check the input validations, the type of input entered??
-#check the concurrency or the speed of the program
-#
+    asyncio.run(main())
