@@ -1,12 +1,6 @@
 # CyberCrypt
 
-![Build Status](https://github.com/UwimanaMuhiziElie/cybercrypt/actions/workflows/main.yml/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/UwimanaMuhiziElie/cybercrypt/badge.svg?branch=main)](https://coveralls.io/github/UwimanaMuhiziElie/cybercrypt?branch=main)
-[![codecov](https://codecov.io/gh/UwimanaMuhiziElie/cybercrypt/branch/main/graph/badge.svg)](https://codecov.io/gh/UwimanaMuhiziElie/cybercrypt)
-![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding,decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
+CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding, decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
 
 ## Installation
 
