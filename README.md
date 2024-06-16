@@ -8,6 +8,10 @@ CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers a
 - Python 3.6 or higher
 
 ### Installation Steps
+#### Option 1: Install from PyPI
+1. Install CyberCrypt using `pip`:`pip install cybercrypt`
+   
+#### Option 2: Install from source
 1. Clone the repository: `git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git`
 2. Navigate to the project directory: `cd cybercrypt`
 3. Install CyberCrypt: `python setup.py install`
