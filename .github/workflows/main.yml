@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9, 3.10]
+        python-version: [3.6, 3.7, 3.9, 3.10, 3.11]
 
     steps:
     - name: Checkout repository
@@ -24,14 +24,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests and generate coverage report
+    - name: Run tests
       run: |
-        pytest --cov=core --cov-report xml --cov-report term-missing tests/
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4.0.1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
+        pytest tests/
