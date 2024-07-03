@@ -155,30 +155,33 @@ pip install . or pip install --user . or sudo pip install .
 - **Encrypt data using base64**: 
   - Demonstration: This command will encode the string "hello world" using the base64 algorithm.
   - Example:
-  ```shell
+```shell
 python cybercrypt.py "hello world" --encode base64
-  ```
+```
 - **Decrypt data using base64**: 
   - Demonstration: This command will decode the base64-encoded string "aGVsbG8gd29ybGQ=".
   - Example:
-  ```shell
+```shell
 python cybercrypt.py "aGVsbG8gd29ybGQ=" --decode base64
-  ```
+```
 - **Hash data using sha256**:
   - Demonstration: This command will hash the string "password123" using the SHA-256 algorithm.
   - Example:
-  ```shell
+```shell
 python cybercrypt.py "password123" --hash sha256
-  ```
+```
 - **Unhash data with wordlist using md5**:
   - Demonstration: This command will attempt to unhash the MD5 hash <hashed_data> using words from the wordlist file.
   - Example:
-  ```shell 
-  python cybercrypt.py "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" --unhash md5 --wordlist wordlist.txt
-  ```
+```shell 
+python cybercrypt.py "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" --unhash md5 --wordlist wordlist.txt
+```
 - **Generating RSA-key-pair**:
   - Demonstration: This command will generate a RSA key pair (public and private keys).
-  - Example: `python cybercrypt.py --generate-rsa-keypair --key-size 2048 --passphrase "we are hackers!"`
+  - Example: 
+  ```shell 
+  python cybercrypt.py --generate-rsa-keypair --key-size 2048 --passphrase "we are hackers!"
+  ```
 
 - **RSA encryption**:
   - Demonstration: This command will encrypt the string "secret message" using RSA encryption and the specified public key.
