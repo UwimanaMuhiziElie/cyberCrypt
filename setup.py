@@ -17,7 +17,7 @@ setup(
         'cryptography',
         'pytest-asyncio',  
         'aiofiles',
-        'bcyrpt',       
+        'bcrypt',       
     ],
     extras_require={
         'dev': [
