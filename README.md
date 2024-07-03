@@ -54,7 +54,7 @@ python cybercrypt.py --help
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 2. Install python 3 and pip: 
-```bash 
+```shell 
 brew install python
 ```
 3. Clone the repository: 
