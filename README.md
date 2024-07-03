@@ -185,26 +185,32 @@ python cybercrypt.py "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d
 
 - **RSA encryption**:
   - Demonstration: This command will encrypt the string "secret message" using RSA encryption and the specified public key.
-  - Example: `python cybercrypt.py "secret message" --rsa-encrypt --public-key rsa_public.pem`
+  - Example: 
+  ```shell
+  python cybercrypt.py "secret message" --rsa-encrypt --public-key rsa_public.pem
+  ```
 
 - **RSA decryption**:
   - Demonstration: This command will decrypt the RSA-encrypted data using the specified private key.
   - Example: 
-  ```shell
+```shell
 python cybercrypt.py <encrypted_data> --rsa-decrypt --private-key rsa_private.pem --passphrase "we are hackers!"
-  ```
+```
 
 - **AES encryption**:
   - Demonstration: This command will encrypt the string "secret message" using AES encryption and the specified key file.
-  - Example: `python cybercrypt.py "secret message" --aes-encrypt --key-file aes_key.bin`
+  - Example: 
+  ```shell
+  python cybercrypt.py "secret message" --aes-encrypt --key-file aes_key.bin
+  ```
 
 - **AES decryption**:
   - Demonstration: This command will decrypt the AES-encrypted data using the specified key file.
   - Example:
   ```shell
 python cybercrypt.py <encrypted_data> --aes-decrypt --key-file aes_key.bin
-
   ```
+
 ## 📌 Author
 
 ### Elie Uwimana 😎
