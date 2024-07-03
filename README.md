@@ -1,5 +1,5 @@
 # CyberCrypt
-
+![](logo.png)
 CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding, decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
 
 ## Installation
