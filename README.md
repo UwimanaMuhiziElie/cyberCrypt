@@ -8,16 +8,33 @@ CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers a
 - Python 3.6 or higher
 
 ### Installation Steps
-#### Option 1: Install from PyPI
-1. Install CyberCrypt using `pip`:`pip install cybercrypt`
-   
-#### Option 2: Install from source
+
+#### Option 1: Install On Windows Os:
 1. Clone the repository: `git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git`
 2. Navigate to the project directory: `cd cybercrypt`
 3. Install CyberCrypt: `python setup.py install`
 
+#### Option 2: Install on Linux (Kali Linux, Ubuntu tested):
+1. Clone the repository: `git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git`
+2. Navigate to the project directory: `cd cybercrypt`
+3. - Install all Requirements and dependencies:`pip install --user .`
+   - Or with `sudo` for system-wide installation: `sudo pip install .` 
+4. Test the tool: `python cybercrypt.py --help` 
+
+#### Option 3: Install on MacOs:
+1. Install Homebrew (if not already installed):`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+2. Install python 3 and pip: `brew install python`
+3. Clone the repository: `git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git`
+4. Navigate to the project directory: `cd cybercrypt`
+5. Install Dependencies Using pip:`pip3 install --user .`
+6. Test the tool: `python cybercrypt.py --help`
 ## Usage
 - For usage instructions, run `python cybercrypt.py --help`
+
+#### Using a Virtual Environment(linux or macos):
+1. Create a virtual Environment: `python3 -m venv venv`
+2. Activate the Virtual Environment: `source venv/bin/activate`
+3. Install the package in the Virtual Environment: `pip install .`, `pip install --user .`, or `sudo pip install .`
 
 ## Examples
 - **Encrypt data using base64**: 
