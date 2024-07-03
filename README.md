@@ -1,6 +1,10 @@
 # CyberCrypt
-![](logo.png)
-CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding, decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
+
+![cybercrypt-logo](logo.png)
+
+## 📜 Description
+
+💡CyberCrypt💡 is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding, decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
 
 ## Installation
 
@@ -22,13 +26,20 @@ CyberCrypt is a command‑line cybersecurity tool designed for ethical hackers a
 4. Test the tool: `python cybercrypt.py --help` 
 
 #### Option 3: Install on MacOs:
-1. Install Homebrew (if not already installed):`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-2. Install python 3 and pip: `brew install python`
+1. Install Homebrew (if not already installed):
+```bash 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+2. Install python 3 and pip: 
+```bash 
+brew install python
+```
 3. Clone the repository: `git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git`
 4. Navigate to the project directory: `cd cybercrypt`
 5. Install Dependencies Using pip:`pip3 install --user .`
 6. Test the tool: `python cybercrypt.py --help`
-## Usage
+
+## 🚀 Usage
 - For usage instructions, run `python cybercrypt.py --help`
 
 #### Using a Virtual Environment(linux or macos):
