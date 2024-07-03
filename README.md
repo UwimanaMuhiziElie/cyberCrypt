@@ -151,7 +151,7 @@ source venv/bin/activate
 pip install . or pip install --user . or sudo pip install .
 ```
 
-## Examples
+## 📝 Examples
 - **Encrypt data using base64**: 
   - Demonstration: This command will encode the string "hello world" using the base64 algorithm.
   - Example:
@@ -200,16 +200,16 @@ python cybercrypt.py <encrypted_data> --rsa-decrypt --private-key rsa_private.pe
 - **AES encryption**:
   - Demonstration: This command will encrypt the string "secret message" using AES encryption and the specified key file.
   - Example: 
-  ```shell
-  python cybercrypt.py "secret message" --aes-encrypt --key-file aes_key.bin
-  ```
+```shell
+python cybercrypt.py "secret message" --aes-encrypt --key-file aes_key.bin
+```
 
 - **AES decryption**:
   - Demonstration: This command will decrypt the AES-encrypted data using the specified key file.
   - Example:
-  ```shell
+```shell
 python cybercrypt.py <encrypted_data> --aes-decrypt --key-file aes_key.bin
-  ```
+```
 
 ## 📌 Author
 
