@@ -6,6 +6,21 @@
 
 💡CyberCrypt💡 is a command‑line cybersecurity tool designed for ethical hackers and penetration testers. It aims to deliver secure data transformation, robust hashing operations, and encryption algorithms (AES and RSA). it supports a comprehensive range of operations, including encoding, decoding, hashing, and unhashing. It supports all operating systems (Linux, Windows, and MacOs)
 
+## 🌟 Features
+
+- **Generate RSA Key Pair**: Create RSA key pairs with specified key sizes (2048, 3072, or 4096 bits) and optional passphrase for private key encryption.
+- **Base64 Encoding/Decoding**:Encode or decode data using Base64 algorithm.
+- **Hex Encoding/Decoding**:Encode or decode data using Hexadecimal algorithm.
+- **URL Encoding/Decoding**:Encode or decode data using URL encoding.
+- **HTML Encoding/Decoding**: Encode or decode data using HTML encoding.
+- **Hashing**: Hash data using various algorithms such as MD5, SHA-1, SHA-256, SHA-512, SHA-3-256, and bcrypt.
+- **Concurrent Hashing**: Enable concurrent hashing to speed up the hashing process for large datasets.
+- **Unhashing**: Attempt to reverse a hash using a specified wordlist.
+- **RSA Encryption/Decryption**: Encrypt or decrypt data using RSA with specified public/private keys and padding schemes (OAEP or PKCS1v15).
+- **AES Encryption/Decryption**: Encrypt or decrypt data using AES with specified key file.
+- **Key Wrapping**: Wrap a symmetric key using another key.
+- **Key Unwrapping**: Unwrap a symmetric key using the wrapping key.
+
 ## ⚙️ Installation
 
 ### Prerequisites
