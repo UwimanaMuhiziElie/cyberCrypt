@@ -4,4 +4,4 @@ cryptography
 pytest-asyncio
 aiofiles
 pytest
-codecov
+
