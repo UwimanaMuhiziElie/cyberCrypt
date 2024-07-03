@@ -66,9 +66,9 @@ git clone https://github.com/UwimanaMuhiziElie/cybercrypt.git
 cd cybercrypt
 ```
 5. Install Dependencies Using pip:
-   ```shell
-  pip install --user .
-  ```
+```shell
+pip install --user .
+```
 6. Test the tool: 
 ```shell
 python cybercrypt.py --help
