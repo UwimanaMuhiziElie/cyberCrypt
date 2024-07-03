@@ -7,8 +7,8 @@ setup(
     entry_points={
         'console_scripts': [
             'cyberCrypt=cybercrypt:main',
-            'cyberCrypt-windows=cybercrypt:main',  # For Windows
-            'cyberCrypt-linux=cybercrypt:main',    # For Linux
+            'cyberCrypt-windows=cybercrypt:main',  
+            'cyberCrypt-linux=cybercrypt:main',   
         ],
     },
     install_requires=[
@@ -16,7 +16,8 @@ setup(
         'colorama',
         'cryptography',
         'pytest-asyncio',  
-        'aiofiles',       
+        'aiofiles',
+        'bcyrpt',       
     ],
     extras_require={
         'dev': [
@@ -34,5 +35,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.6',
 )
