@@ -8,7 +8,9 @@ setup(
         'console_scripts': [
             'cyberCrypt=cybercrypt:main',
             'cyberCrypt-windows=cybercrypt:main',  
-            'cyberCrypt-linux=cybercrypt:main',   
+            'cyberCrypt-linux=cybercrypt:main', 
+            'cyberCrypt-macos=cybercrypt:main',  
+  
         ],
     },
     install_requires=[
@@ -25,8 +27,8 @@ setup(
             'pytest-asyncio',
         ],
     },
-    author='El13',
-    author_email='muhizielie01@gmail.com',
+    author='El13😎',
+    author_email='hackelie13@gmail.com',
     description='A versatile command-line tool for secure data transformation, hashing operations, and encryption algorithms.',
     url='https://github.com/UwimanaMuhiziElie/cybercrypt.git',
     license='MIT',
