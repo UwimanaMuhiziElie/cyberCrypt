@@ -241,5 +241,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [UNDERSTANDING DATA ENCRYPTION: A Practical Guide to Secure Computing](https://www.amazon.com/dp/B0D1TLTZ98/ref=sspa_dk_detail_2?psc=1&pd_rd_i=B0D1TLTZ98&pd_rd_w=JQkaA&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=SWTRAAGWVQ6HQWNCC9XC&pd_rd_wg=qoc1p&pd_rd_r=bd3942c5-8738-4299-843d-a53fc174c4f7&s=books&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw)
 - [Serious Cryptography: A Practical Introduction to Modern Encryption](https://www.amazon.com/Serious-Cryptography-Practical-Introduction-Encryption/dp/1593278268?dplnkId=04c0f7fd-313d-4445-8d85-cd3ba4fa2511&nodl=1)
-- [HackerOne](https://hackerone.com/)
 - [OpenAI](https://openai.com/)
