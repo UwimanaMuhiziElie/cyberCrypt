@@ -57,7 +57,7 @@ pip install --user .
 ```
    - Or with `sudo` for system-wide installation: 
    ```shell
-  pip install --user .
+  sudo pip install  .
   ```
 4. Test the tool: 
 ```shell
